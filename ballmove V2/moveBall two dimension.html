@@ -1,0 +1,89 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:200px;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:green"></div>
+
+<script>
+var ball = document.getElementById('ball');
+var velocityX = 10;
+var velocityY = 30
+var positionX = 0;
+var positionY = 0;
+var reverseX = false;
+var reverseY = false;
+
+function moveBall() {
+  // two fixed x-axis coordinates (you will use these variable in step 3)
+  var Xmin = 0;
+  var Xmax = 300;
+  var Ymin = 0;
+  var Ymax = 300;
+
+  if(reverseX == false){
+    positionX += velocityX;
+  } else {
+    positionX -= velocityX;
+  };
+
+  if(reverseY == false){
+    positionY += velocityY;
+  } else {
+    positionY -= velocityY;
+  };
+
+    if(positionX > Xmax || positionX == Xmin)
+  {
+     reverseX =! reverseX;
+  } else if(positionY > Ymax || positionY == Ymin)
+  {
+    reverseY =! reverseY;
+  }
+  
+  ;
+
+  ball.style.top = positionY + 'px';
+  ball.style.left = positionX + 'px';  
+  
+  console.log("positionX:" + positionX, "positionY:" + positionY);
+};
+// This call the moveBall function every 100ms
+setInterval(moveBall, 100);
+
+
+/*
+var ball = document.getElementById('ball');
+var velocity = 100;
+var positionX = 0;
+var positionY = 0;
+var reverse = false;
+
+function moveBall(){
+  var Xmin = 0; 
+  var Xmax = 300;
+  var Ymin = 0;
+  var Ymax = 300;
+  
+
+if (reverse == false){
+  positionX += velocity;
+  positionY += velocity;
+} else {
+  positionX -= velocity;
+  positionY -= velocity;
+};
+
+if(positionX > Xmax || positionX == Xmin){
+  reverse != reverse;
+}
+ball.style.top = positionY + 'px';
+ball.style.left = positionX + 'px';
+};
+setInterval(horizontalMove, 100);*/
+
+
+</script>
